@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 
 class WomenList extends React.Component{
@@ -9,6 +10,16 @@ class WomenList extends React.Component{
         }
     }
 
+
+  componentDidMount() {
+      axios.get('http://localhost:5000/api/players')
+      .then(res => {
+          console.log(res)
+      })
+      .catch(error => {
+          console.log('Error', error)
+      })
+  }
 
 
     render(){
