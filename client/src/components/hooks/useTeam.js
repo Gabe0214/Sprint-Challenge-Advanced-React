@@ -5,7 +5,7 @@ export const useTeam = (initialValue) => {
     const [value, setValue] = useState(initialValue)
 
     const toggleHandler = () => {
-        setValue(value)
+        setValue(!value)
     }
    
 
