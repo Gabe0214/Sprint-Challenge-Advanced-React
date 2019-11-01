@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import PlayerCard from './PlayerCard'
 
 
 class WomenList extends React.Component{
@@ -15,6 +16,9 @@ class WomenList extends React.Component{
       axios.get('http://localhost:5000/api/players')
       .then(res => {
           console.log(res)
+          this.setState({
+              players: res.data
+          })
       })
       .catch(error => {
           console.log('Error', error)
@@ -25,7 +29,9 @@ class WomenList extends React.Component{
     render(){
         return(
             <div>
-                <h2>Testing</h2>
+                {this.state.players.map( player => (
+                 <PlayerCard player ={player}/> 
+                ))}
             </div>
         )
     }
